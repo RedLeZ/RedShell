@@ -22,7 +22,7 @@ class Shell():
     def test(self):
         print("Test command is working")
 
-    def help(self, parameter):
+    def help(self, parameter = None):
         self.helpMenu = {
                 'help': 'Shows this help menu',
                 'exit': 'Exits the shell',
