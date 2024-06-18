@@ -1,7 +1,9 @@
 import os
 import time
+from prompt_toolkit import prompt
+from prompt_toolkit.completion import WordCompleter
 
-class Shell():
+class Shell:
     def __init__(self) -> None:
         self.running = True
         self.commands = {
@@ -19,6 +21,8 @@ class Shell():
                 'vim': self.vim,
                 }
         self.commandsHistory = []
+
+
     def test(self):
         print("Test command is working")
 
@@ -94,10 +98,14 @@ class Shell():
         os.system(f'vim {parameter}')
 
     def run(self):
+        com_list = list(self.commands.keys())
+        completion = WordCompleter(com_list)
         while self.running:
             parameter = None
             currentDirectory = os.getcwd().split('/')[-1]
-            command = input(f'~/{currentDirectory} - redshell > ').lower()
+            command = prompt(f'$/{currentDirectory} - RedShell > ', completer=completion, complete_while_typing=True)
+            # checks for the first space behind the cursor
+
             spaceIndex = command.find(' ')
             if spaceIndex != -1:
                 parameter = command[spaceIndex + 1:]
