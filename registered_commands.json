@@ -1,0 +1,23 @@
+{
+    "ls": {
+        "class": "LsCommand",
+        "parameters": [
+            "directory"
+        ],
+        "descr": "List directory contents"
+    },
+    "mkdir": {
+        "class": "MkdirCommand",
+        "parameters": [
+            "directory"
+        ],
+        "descr": "Create a new directory"
+    },
+    "echo": {
+        "class": "EchoCommand",
+        "parameters": [
+            "message"
+        ],
+        "descr": "Echoes the input message."
+    }
+}
