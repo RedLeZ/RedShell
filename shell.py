@@ -41,20 +41,11 @@ class Shell:
         register_commands()
         self.load_commands()
 
-    def restart(self):
-        self.running = False
-        self.load_commands()
-        self.running = True
-
-
-
-
     def show_help(self):
         print("Available commands:")
         print("exit: Exit the shell")
         print("refresh: Refresh the commands")
         print("help: Show this help")
-        print("restart: Restart the shell")
         for cmd_name, cmd_info in self.commands.items():
             print(f"{cmd_name}: {cmd_info['descr']}")
 
@@ -76,13 +67,11 @@ class Shell:
                         self.refresh()
                     elif command == "help":
                         self.show_help()
-                    elif command == "restart":
-                        self.restart()
                     else:
                         try :
                             self.run_command(command, *args)
-                        except Exception:
-                            print(f"Error with the command {command} : Please check the command file")
+                        except Exception as e:
+                            print(f"Error with the command {command} : Please check the command file : {e}")
             except (KeyboardInterrupt, EOFError):
                 break
 

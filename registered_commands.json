@@ -1,10 +1,39 @@
 {
+    "sus": {
+        "class": "SusCommand",
+        "parameters": [],
+        "descr": "Displays a sus animation"
+    },
+    "curl": {
+        "class": "CurlCommand",
+        "parameters": [
+            "url"
+        ],
+        "descr": "Retrieve the content of a webpage"
+    },
+    "clear": {
+        "class": "ClearCommand",
+        "parameters": [],
+        "descr": "Clear the screen"
+    },
+    "rmdir": {
+        "class": "RmdirCommand",
+        "parameters": [
+            "directory"
+        ],
+        "descr": "Remove directories"
+    },
     "ls": {
         "class": "LsCommand",
         "parameters": [
             "directory"
         ],
         "descr": "List directory contents"
+    },
+    "rm": {
+        "class": "RmCommand",
+        "parameters": [],
+        "descr": "Remove a file"
     },
     "mkdir": {
         "class": "MkdirCommand",
