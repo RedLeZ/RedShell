@@ -40,8 +40,8 @@ Modding the shell means adding commands to it. Follow these steps:
         def __init__(self):
             # Here you define the name, parameters, and description of the command
             self.name = "template"
-            self.parameters = []
-            self.descr = "This is a template command"
+            self.flags = []
+            self.description = "This is a template command"
 
         def run(self, *args):
             # This is where you implement the command's functionality
