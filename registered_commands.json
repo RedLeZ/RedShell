@@ -48,5 +48,12 @@
             "message"
         ],
         "descr": "Echoes the input message."
+    },
+    "cd": {
+        "class": "CdCommand",
+        "parameters": [
+            "directory"
+        ],
+        "descr": "Change the current directory"
     }
 }

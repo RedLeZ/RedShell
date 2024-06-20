@@ -4,8 +4,8 @@ import requests
 class CurlCommand :
     def __init__(self):
         self.name = "curl"
-        self.parameters = ["url"]
-        self.descr = "Retrieve the content of a webpage"
+        self.flags = ["url"]
+        self.description = "Retrieve the content of a webpage"
 
     def run(self, *args):
         if len(args) != 1:

@@ -3,8 +3,8 @@ import os
 class MkdirCommand:
     def __init__(self):
         self.name = "mkdir"
-        self.parameters = ["directory"]
-        self.descr = "Create a new directory"
+        self.flags = ["directory"]
+        self.description = "Create a new directory"
 
     def run(self, *args):
         if len(args) == 0:

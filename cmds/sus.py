@@ -6,8 +6,8 @@ import time
 class SusCommand:
     def __init__(self):
         self.name = "sus"
-        self.parameters = []
-        self.descr = "Displays a sus animation"
+        self.flags = []
+        self.description = "Displays a sus animation"
 
     def run(self, *args):
         gif_path = os.path.join(os.path.dirname(__file__), 'sus/sus.gif')

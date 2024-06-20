@@ -3,8 +3,8 @@ import os
 class ClearCommand:
     def __init__(self):
         self.name = "clear"
-        self.parameters = []
-        self.descr = "Clear the screen"
+        self.flags = []
+        self.description = "Clear the screen"
 
     def run(self, *args):
         if args:

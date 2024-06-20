@@ -3,8 +3,8 @@ import os
 class LsCommand:
     def __init__(self):
         self.name = "ls"
-        self.parameters = ["directory"]
-        self.descr = "List directory contents"
+        self.flags = ["directory"]
+        self.description = "List directory contents"
 
     def run(self, *args):
         if len(args) == 0:

@@ -21,8 +21,9 @@ def register_commands():
             if command_instance:
                 registered_commands[command_instance.name] = {
                     'class': command_instance.__class__.__name__,
-                    'parameters': command_instance.parameters,
-                    'descr': command_instance.descr
+                    'parameters': command_instance.flags,
+                    'descr': command_instance.description,
+
                 }
 
     with open('registered_commands.json', 'w') as f:

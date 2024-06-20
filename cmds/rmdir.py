@@ -3,8 +3,8 @@ import os
 class RmdirCommand:
     def __init__(self):
         self.name = "rmdir"
-        self.parameters = ["directory"]
-        self.descr = "Remove directories"
+        self.flags = ["directory"]
+        self.description = "Remove directories"
 
     def run(self, *args): 
         if args:

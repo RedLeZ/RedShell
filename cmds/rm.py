@@ -3,8 +3,8 @@ import os
 class RmCommand:
     def __init__(self):
         self.name = "rm"
-        self.parameters = []
-        self.descr = "Remove a file"
+        self.flags = []
+        self.description = "Remove a file"
 
     def run(self, *args):
         if not args:
