@@ -64,3 +64,7 @@ Modding the shell means adding commands to it. Follow these steps:
 Anyone is free to contribute! Have fun :)
 
 
+## status
+Time spend on project : ![wakatime](https://wakatime.com/badge/user/39a3a246-5f01-49ec-8eaa-f0573373da7a/project/0ee68efc-0ef7-482f-8e76-5bbc1e352d7f.svg)
+Languages : Python, Json
+
