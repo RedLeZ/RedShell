@@ -1,6 +1,14 @@
 # RedShell
 A Modable Shell by [RedLeZ](https://github.com/RedLeZ) using the Python language
 
+## Features
+
+- Modular command system (drop Python files into `cmds/`)
+- Auto-register commands at startup and via `refresh`
+- Command autocompletion (via prompt_toolkit)
+- Persistent history across sessions (`~/.redshell_history`)
+- Built-in help with per-command usage (`help <command>`)
+
 ## How to Use
 
 1. **Clone the Repository:**
@@ -27,6 +35,23 @@ A Modable Shell by [RedLeZ](https://github.com/RedLeZ) using the Python language
     python3 shell.py
     ```
 
+### Built-in commands
+
+- `help` — List all commands. Use `help <command>` for details and usage.
+- `history` — Show recent commands (up to 50 by default). You can pass a number: `history 200`.
+- `refresh` — Re-scan `cmds/` and update the command registry on the fly.
+- `restart` — Restart the shell process.
+- `exit` — Quit the shell.
+
+### Output redirection
+
+You can redirect a command's text output to a file:
+
+```bash
+ls > files.txt
+echo "hello world" >> log.txt
+```
+
 ## How to Mod
 
 Modding the shell means adding commands to it. Follow these steps:
@@ -36,6 +61,14 @@ Modding the shell means adding commands to it. Follow these steps:
     **template.py:**
 
     ```python
+    # Optional metadata to speed up registry and provide better help
+    COMMAND_META = {
+        "name": "template",
+        "class": "TemplateCommand",
+        "flags": [],
+        "description": "This is a template command"
+    }
+
     class TemplateCommand:
         def __init__(self):
             # Here you define the name, parameters, and description of the command
@@ -44,11 +77,10 @@ Modding the shell means adding commands to it. Follow these steps:
             self.description = "This is a template command"
 
         def run(self, *args):
-            # This is where you implement the command's functionality
+            # Return a string to display output. Avoid printing directly.
             if args:
-                return "Args:", args
-            else:
-                return "No args"
+                return "Args: " + ", ".join(args)
+            return "No args"
     ```
 
 2. Register your new command:
@@ -57,7 +89,7 @@ Modding the shell means adding commands to it. Follow these steps:
     python3 register_command.py
     ```
 
-    Your command should now be available for use.
+    Your command should now be available for use. Alternatively, start the shell and run `refresh`.
 
 ## Contributing
 

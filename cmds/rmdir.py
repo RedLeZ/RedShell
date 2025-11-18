@@ -6,8 +6,16 @@ class RmdirCommand:
         self.flags = ["directory"]
         self.description = "Remove directories"
 
-    def run(self, *args): 
-        if args:
-            return os.rmdir(args[0])
-        else :
-            return "Please provide a directory name"
+    def run(self, *args):
+        if not args:
+            return "rmdir: missing operand"
+        path = args[0]
+        try:
+            os.rmdir(path)
+        except FileNotFoundError:
+            return f"rmdir: failed to remove '{path}': No such file or directory"
+        except OSError:
+            return f"rmdir: failed to remove '{path}': Directory not empty"
+        except PermissionError:
+            return f"rmdir: failed to remove '{path}': Permission denied"
+        return ""

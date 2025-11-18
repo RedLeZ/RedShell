@@ -8,12 +8,15 @@ class MkdirCommand:
 
     def run(self, *args):
         if len(args) == 0:
-            print("mkdir: missing operand")
-            return " "
-        try :
-            os.mkdir(args[0])
+            return "mkdir: missing operand"
+        path = args[0]
+        try:
+            os.mkdir(path)
         except FileExistsError:
-            return "mkdir: cannot create directory '" + args[0] + "':  It already exists"
-            
-        return "Created directory: " + args[0]
+            return f"mkdir: cannot create directory '{path}': File exists"
+        except FileNotFoundError:
+            return f"mkdir: cannot create directory '{path}': No such file or directory"
+        except PermissionError:
+            return f"mkdir: cannot create directory '{path}': Permission denied"
+        return ""
 

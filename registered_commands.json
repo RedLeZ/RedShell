@@ -1,16 +1,4 @@
 {
-    "sus": {
-        "class": "SusCommand",
-        "parameters": [],
-        "descr": "Displays a sus animation"
-    },
-    "curl": {
-        "class": "CurlCommand",
-        "parameters": [
-            "url"
-        ],
-        "descr": "Retrieve the content of a webpage"
-    },
     "clear": {
         "class": "ClearCommand",
         "parameters": [],
